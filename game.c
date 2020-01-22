@@ -1,4 +1,4 @@
-#include "header.h"
+#include "game.h"
 
 int main(){
   char Character_name[20];

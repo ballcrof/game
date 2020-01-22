@@ -1,4 +1,5 @@
-#include "header.h"
+#include "game.h"
+#include "look.h"
 
 void describe_room(){
   if (current_board == 0) {

@@ -1,4 +1,5 @@
-#include "header.h"
+#include "game.h"
+#include "talking.h"
 
 void talk_options(){
   switch (current_board) {
@@ -13,6 +14,6 @@ void talk_options(){
 }
 
 void starting_area_talk(){
-  printf(" There is nobody to talk to here \n\n");
+  printf("\n There is nobody to talk to here \n\n");
   return;
 }

@@ -26,7 +26,3 @@ int compare(int first_cmp, int second_cmp);
 void story_start(char Character_name[20]);
 int player_in(char *decision[30]);
 void inventory(struct inventory main_char_inv);
-void describe_room();
-void starting_area_desc();
-void talk_options();
-void starting_area_talk();
