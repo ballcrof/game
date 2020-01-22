@@ -4,6 +4,9 @@
 void direction(int direction){
 
   if (direction == 1) {
+    if((current_board.x_val == 1) && (current_board.y_val)){
+
+    }
     /* North */
     current_board.y_val = current_board.y_val + 1;
   }

@@ -7,8 +7,8 @@ void story_start(char Character_name[20]){
 
   struct inventory main_char_inv;
   int actions;
-  current_board.x_val = 0;
-  current_board.y_val = 0;
+  first_room.x_val = 0;
+  first_room.y_val = 0;
 
   main_char_inv.main_weapon = "None";
   main_char_inv.secondary_weapon = "None";

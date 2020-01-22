@@ -20,8 +20,14 @@ char* slot_10;
 struct board{
   int x_val;
   int y_val;
+  char* room_type;
+  struct board *North;
+  struct board *South;
+  struct board *East;
+  struct board *West;
 } current_board;
 
+void setup(struct board first_room);
 int health(char Character_name[20]);
 int damage(char Character_name[20]);
 int speed(char Character_name[20]);
