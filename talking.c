@@ -2,13 +2,19 @@
 #include "talking.h"
 
 void talk_options(){
-  switch (current_board) {
+  switch (current_board.x_val) {
     case 0:
-    starting_area_talk();
+
+    switch (current_board.y_val) {
+
+      case 0:
+      starting_area_talk();
+      break;
+    }
     break;
 
     default:
-    printf(" It doesn't look like anyone is willing to talk to you\n");
+    printf("\n It doesn't look like anyone is willing to talk to you\n\n");
   }
   return;
 }

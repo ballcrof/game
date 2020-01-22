@@ -1,10 +1,14 @@
-#include "header.h"
+#include "game.h"
+#include "talking.h"
+#include "look.h"
+#include "move.h"
 
 void story_start(char Character_name[20]){
 
   struct inventory main_char_inv;
   int actions;
-  current_board = 0;
+  current_board.x_val = 0;
+  current_board.y_val = 0;
 
   main_char_inv.main_weapon = "None";
   main_char_inv.secondary_weapon = "None";
@@ -40,19 +44,23 @@ void story_start(char Character_name[20]){
       break;
 
       case 4:
-      printf("north direction\n");
+      direction(1);
+      printf("\nPosition: %d %d\n\n", current_board.x_val, current_board.y_val);
       break;
 
       case 5:
-      printf("south direction\n");
+      direction(2);
+      printf("\nPosition: %d %d\n\n", current_board.x_val, current_board.y_val);
       break;
 
       case 6:
-      printf("east direction\n");
+      direction(3);
+      printf("\nPosition: %d %d\n\n", current_board.x_val, current_board.y_val);
       break;
 
       case 7:
-      printf("west direction\n");
+      direction(4);
+      printf("\nPosition: %d %d\n\n", current_board.x_val, current_board.y_val);
       break;
 
       case 8:

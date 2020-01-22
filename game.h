@@ -17,7 +17,10 @@ char* slot_9;
 char* slot_10;
 };
 
-int current_board;
+struct board{
+  int x_val;
+  int y_val;
+} current_board;
 
 int health(char Character_name[20]);
 int damage(char Character_name[20]);
