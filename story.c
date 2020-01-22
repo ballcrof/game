@@ -1,12 +1,12 @@
 #include "header.h"
-int current_board;
+
 void story_start(char Character_name[20]){
 
   struct inventory main_char_inv;
   int actions;
   current_board = 0;
 
-  main_char_inv.main_weapon = "Broken straight sword";
+  main_char_inv.main_weapon = "None";
   main_char_inv.secondary_weapon = "None";
   main_char_inv.slot_1 = "empty";
   main_char_inv.slot_2 = "empty";
@@ -20,49 +20,66 @@ void story_start(char Character_name[20]){
   main_char_inv.slot_10 = "empty";
 
   do{
-    actions = player_in();
+    char *decisions[30];
+    actions = player_in(decisions);
+    switch (actions) {
+      case 0:
+      talk_options();
+      break;
 
-    if(actions == 1){
+      case 1:
       inventory(main_char_inv);
-    }
-    else if(actions == 2){
+      break;
+
+      case 2:
       printf("use menu option\n");
-    }
-    else if(actions == 3){
+      break;
+
+      case 3:
       describe_room();
-      printf("look option\n");
-    }
-    else if(actions == 4){
+      break;
+
+      case 4:
       printf("north direction\n");
-    }
-    else if(actions == 5){
+      break;
+
+      case 5:
       printf("south direction\n");
-    }
-    else if(actions == 6){
+      break;
+
+      case 6:
       printf("east direction\n");
-    }
-    else if(actions == 7){
+      break;
+
+      case 7:
       printf("west direction\n");
-    }
-    else if(actions == 8){
+      break;
+
+      case 8:
+      return;
       printf("\n\nThanks for playing!!!\n\n");
       break;
-    }
-    else{
+
+      case 9:
+      printf("pickup option\n");
+      break;
+
+      default:
       printf("not a recognised action\n");
     }
-  }while(actions != 8);
+
+  }while(1 == 1);
   return;
 }
 
 void inventory(struct inventory main_char_inv){
 
-  printf("Main Weapon: %s\nSecondary Weapon: %s\nInventory Slots:\n%s %s\n%s %s\n%s %s\n%s %s\n%s %s\n ", main_char_inv.main_weapon, main_char_inv.secondary_weapon, main_char_inv.slot_1, main_char_inv.slot_2, main_char_inv.slot_3, main_char_inv.slot_4, main_char_inv.slot_5, main_char_inv.slot_6, main_char_inv.slot_7, main_char_inv.slot_8, main_char_inv.slot_9, main_char_inv.slot_10);
+  printf("Main Weapon: %s\nSecondary Weapon: %s\nInventory Slots:\n%s %s\n%s %s\n%s %s\n%s %s\n%s %s\n\n", main_char_inv.main_weapon, main_char_inv.secondary_weapon, main_char_inv.slot_1, main_char_inv.slot_2, main_char_inv.slot_3, main_char_inv.slot_4, main_char_inv.slot_5, main_char_inv.slot_6, main_char_inv.slot_7, main_char_inv.slot_8, main_char_inv.slot_9, main_char_inv.slot_10);
 
   return;
 }
 
-int player_in(){
+int player_in(char *decision[30]){
   char decisions[30];
   char inventory[30] = "inventory";
   char use[10] = "use";
@@ -72,9 +89,13 @@ int player_in(){
   char east[10] = "east";
   char west[10] = "west";
   char quit[10] = "quit";
+  char pickup[30] = "pick up";
+  char talk[10] = "talk";
 
   printf("what will you do?: ");
   fgets(decisions, 30, stdin);
+
+  *decision = decisions;
 
   if(strstr(decisions, inventory)){
     return 1;
@@ -100,17 +121,11 @@ int player_in(){
   else if(strstr(decisions, quit)){
     return 8;
   }
-  return -1;
-}
-
-void describe_room(){
-  if (current_board == 0) {
-    starting_area_desc();
+  else if(strstr(decisions, pickup)){
+    return 9;
   }
-  return;
-}
-
-void starting_area_desc(){
-  printf("You find yourself alone in a rather unfortunate looking hut.\n It would seem that a night of drinking has left you in yet another sticky situation,\n you can see a faint light from an adjacent room and hear what sounds like the crackling of a fire.\n At your feet lays your sword shattered into peices...\n you cant seem to remember how it happened.");
-  return;
+  else if(strstr(decisions, talk)){
+    return 0;
+  }
+  return -1;
 }
