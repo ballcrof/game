@@ -6,9 +6,10 @@
 void story_start(char Character_name[20]){
 
   struct inventory main_char_inv;
+  struct board first_room;
   int actions;
-  first_room.x_val = 0;
-  first_room.y_val = 0;
+
+  current_board = map[3][3];
 
   main_char_inv.main_weapon = "None";
   main_char_inv.secondary_weapon = "None";
@@ -27,56 +28,56 @@ void story_start(char Character_name[20]){
     char *decisions[30];
     actions = player_in(decisions);
     switch (actions) {
-      case 0:
+      case 0:/*talk option*/
       talk_options();
       break;
 
-      case 1:
+      case 1:/*inventory option*/
       inventory(main_char_inv);
       break;
 
-      case 2:
+      case 2:/*use option*/
       printf("use menu option\n");
       break;
 
-      case 3:
+      case 3:/*look option*/
       describe_room();
       break;
 
-      case 4:
+      case 4:/*north option*/
       direction(1);
       printf("\nPosition: %d %d\n\n", current_board.x_val, current_board.y_val);
       break;
 
-      case 5:
+      case 5:/*south option*/
       direction(2);
       printf("\nPosition: %d %d\n\n", current_board.x_val, current_board.y_val);
       break;
 
-      case 6:
+      case 6:/*east option*/
       direction(3);
       printf("\nPosition: %d %d\n\n", current_board.x_val, current_board.y_val);
       break;
 
-      case 7:
+      case 7:/*west option*/
       direction(4);
       printf("\nPosition: %d %d\n\n", current_board.x_val, current_board.y_val);
       break;
 
-      case 8:
+      case 8:/*quit option*/
       return;
       printf("\n\nThanks for playing!!!\n\n");
       break;
 
-      case 9:
+      case 9:/*pickup option*/
       printf("pickup option\n");
       break;
 
-      default:
+      default:/*if not a recognised option*/
       printf("not a recognised action\n");
     }
 
-  }while(1 == 1);
+  }while(1 == 1);/*keeps asking for users choice unless "quit" is typed*/
   return;
 }
 

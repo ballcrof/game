@@ -18,16 +18,19 @@ char* slot_10;
 };
 
 struct board{
+  char* description;
   int x_val;
   int y_val;
   char* room_type;
-  struct board *North;
-  struct board *South;
-  struct board *East;
-  struct board *West;
+  int North;
+  int South;
+  int East;
+  int West;
 } current_board;
 
-void setup(struct board first_room);
+struct board map[7][7];
+
+void setup();
 int health(char Character_name[20]);
 int damage(char Character_name[20]);
 int speed(char Character_name[20]);

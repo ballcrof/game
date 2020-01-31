@@ -1,5 +1,5 @@
-all: game.o story.o look.o talking.o move.o pick.o use.o
-	gcc -ansi -Wall -pedantic game.o story.o look.o talking.o move.o pick.o use.o -o play
+all: game.o story.o look.o talking.o move.o pick.o use.o setup.o
+	gcc -Wall -pedantic game.o story.o look.o talking.o move.o pick.o use.o setup.o -o play
 
 game:	game.c game.h
 	gcc -ansi -Wall -pedantic -c game.c -o game.o
@@ -21,6 +21,12 @@ pick: pick.c game.h pick.h
 
 use: use.c game.h use.h
 	gcc -ansi -Wall -pedantic -c use.c -o use.o
+
+setup: setup.c game.h
+	gcc -ansi -Wall -pedantic -c setup.c -o setup.o
+
+run:all
+	./play
 
 clean:
 	rm *.o

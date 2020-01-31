@@ -2,7 +2,15 @@
 #include "look.h"
 
 void describe_room(){
-  switch (current_board.x_val) {
+  printf("\n%d %d\n\n", current_board.x_val, current_board.y_val);
+
+  if(current_board.description){
+    printf("%s", current_board.description);
+  }
+  else{
+    printf("\nUnknown room\n\n");
+  }
+  /*switch (current_board.x_val) {
     case 0:
 
     switch (current_board.y_val) {
@@ -29,7 +37,7 @@ void describe_room(){
 
     default:
     printf("\n unknown room\n\n");
-  }
+  }*/
   return;
 }
 

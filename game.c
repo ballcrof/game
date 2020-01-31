@@ -13,7 +13,7 @@ int main(){
 
   printf("\n\nyour actions for this game will be: \n\"talk\" + the discriptor for an NPC to talk to them if you're able\n\n\"use\" + the item you want to use if you are able\n\n\"look\" to observe your surroundings \nor \"look\" + object to get a more detailed description\n\n\"pick up\" + an object you want to pick up\n\n\"inventory\" to see what items you currently posses\n\nYou will use the cardinal directions to move throughout this world\n\nand finally just type \"quit to quit the game\"\n\nEnjoy!\n\n");
 
-  /*setup();*/
+  setup();
 
   story_start(Character_name);
   return 0;
